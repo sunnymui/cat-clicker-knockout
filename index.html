@@ -8,9 +8,10 @@
     <ul id="cat-list"></ul>
     <div id="cat">
 
-        <h2 id="cat-name"></h2>
-        <div id="cat-count"></div>
-        <img id="cat-img" src="" alt="cute cat">
+        <h2 id="cat-name" data-bind="text:name"></h2>
+        <h3 data-bind="text: current_cat_level"></h3>
+        <div id="cat-count" data-bind="text:clickCount"></div>
+        <img id="cat-img" data-bind="click:clicked, attr:{src:img}" src="" alt="cute cat">
 
     </div>
     <script src="js/lib/knockout-3.2.0.js"></script>
