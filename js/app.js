@@ -8,8 +8,9 @@ var ViewModel = function() {
   this.img = ko.observable('img/blackwhite.jpg');
   // current cat author / img source
   this.img_author = ko.observable('https://www.flicker.com');
-  // strings to use for cat level display
+  // click counts / strings to use for cat level display
   this.cat_levels_list = {
+    // # of clicks to change text at : text to show for that cat level
     0:'Newborn',
     10:'infant',
     20:'teen',
@@ -25,7 +26,6 @@ var ViewModel = function() {
     // set the click count to current click count + 1
     this.clickCount(this.clickCount() + 1);
   };
-
 
   this.cat_level = ko.computed(function(){
     // compute the current cat level to use based on clicks
