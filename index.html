@@ -5,15 +5,23 @@
     <title>Cat Clicker</title>
 </head>
 <body>
-    <ul id="cat-list"></ul>
-    <div id="cat">
+    <ul id="cat-list" data-bind="foreach: cats_list">
+      <li>
+        <button id="" data-bind="
+        text: $data.name,
+        click: $parent.switch_current_cat"></button>
+      </li>
+    </ul>
+    <!-- Create a binding context using the current_cat Cat object -->
+    <div class="cat" data-bind="with: current_cat()">
 
-        <h2 id="cat-name" data-bind="text: current_cat().name"></h2>
-        <h3 data-bind="text: current_cat().current_cat_level"></h3>
-        <div id="cat-count" data-bind="text: current_cat().clickCount"></div>
-        <img id="cat-img" data-bind="click: clicked, attr:{src: current_cat().img}" src="" alt="cute cat">
+        <h2 id="cat-name" data-bind="text: name"></h2>
+        <h3 data-bind="text: current_cat_level"></h3>
+        <div id="cat-count" data-bind="text: clickCount"></div>
+        <!-- Ascend to outer binding context aka the viewModel with $parent to use clicked function -->
+        <img id="cat-img" data-bind="click: $parent.clicked, attr:{src: img}" src="" alt="cute cat">
         <h3>Nicknames</h3>
-        <ul class="nicknames" data-bind="foreach: current_cat().nicknames_list">
+        <ul class="nicknames" data-bind="foreach: nicknames_list">
           <li data-bind="text: $data"></li>
         </ul>
 
