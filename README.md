@@ -1,4 +1,4 @@
-##Multicat Clicker Knockout.js App
+Multicat Clicker Knockout.js App
 ============================
 
 A very basic clicker web app / game where you click on a cat picture and it counts your clicks. You can switch between different cats in the game.
