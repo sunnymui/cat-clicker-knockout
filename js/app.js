@@ -1,5 +1,6 @@
-// initiate a new view model function
-var ViewModel = function() {
+var Cat = function() {
+  // Cat constructor function
+
   // track number of clicks on cat
   this.clickCount = ko.observable(0);
   // track current cat name
@@ -29,12 +30,7 @@ var ViewModel = function() {
     'Darkness'
   ]);
 
-  this.clicked = function() {
-    // increments the clickCount on clicks of bound cat dom element
-
-    // set the click count to current click count + 1
-    this.clickCount(this.clickCount() + 1);
-  };
+  // FUNCTIONS
 
   this.cat_level = ko.computed(function(){
     // compute the current cat level to use based on clicks
@@ -46,6 +42,21 @@ var ViewModel = function() {
       this.current_cat_level(this.cat_levels_list[this.clickCount()]);
     }
   }, this);
+};
+
+// initiate a new view model function for manipulating our cats
+var ViewModel = function() {
+
+  // instaniate a Cat
+  this.current_cat = ko.observable(new Cat());
+
+  this.clicked = function() {
+    // increments the clickCount on clicks of bound cat dom element
+
+    // set the click count to current click count + 1
+    this.current_cat().clickCount(this.current_cat().clickCount() + 1);
+  };
+
 };
 
 // bind our dom elements to our view model
