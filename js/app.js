@@ -104,11 +104,9 @@ var ViewModel = function() {
 
   this.switch_current_cat = function(data, event) {
     // switches the current cat in the viewmodel to a difference Cat instance
-    // get the index of the Cat instance from the data of cat button that was clicked
-    var current_cat_index = self.cats_list().indexOf(data);
 
     // reset current cat to the passed corresponding Cat instance
-    self.current_cat(self.cats_list()[current_cat_index]);
+    self.current_cat(data);
   };
 
   this.clicked = function() {
