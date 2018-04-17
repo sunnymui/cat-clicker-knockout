@@ -19,6 +19,15 @@ var ViewModel = function() {
   };
   // for storing the current cat level text
   this.current_cat_level = ko.observable('');
+  // array of cat nickname text to display
+  this.nicknames_list = ko.observableArray([
+    'Johnny',
+    'Milo',
+    'Abby',
+    'Penelope',
+    'Gray Fox',
+    'Darkness'
+  ]);
 
   this.clicked = function() {
     // increments the clickCount on clicks of bound cat dom element
